@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nino Hukić</title>
+<style>
+  :root {
+    --barca-blue: #004d98;
+    --barca-red: #a50044;
+    --barca-gold: #ffd54f;
+    --dark: #0a1128;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--barca-blue), var(--dark));
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 70px 20px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ball {
+    font-size: 80px;
+    animation: bounce 1.6s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(15deg); }
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-top: 10px;
+    color: var(--barca-gold);
+    letter-spacing: 2px;
+  }
+
+  .hero p.subtitle {
+    font-size: 1.3rem;
+    color: var(--barca-gold);
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .badge {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 8px 20px;
+    background: var(--barca-red);
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: bold;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    padding: 20px 20px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 18px;
+    padding: 28px;
+    width: 260px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.14);
+  }
+
+  .card .icon {
+    font-size: 48px;
+    margin-bottom: 14px;
+  }
+
+  .card h3 {
+    color: var(--barca-gold);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .card p {
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+
+  .goal-section {
+    text-align: center;
+    padding: 40px 20px 80px;
+  }
+
+  .goal-section h2 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .goal-section p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #d8e0f0;
+    line-height: 1.6;
+  }
+
+  .fun-fact {
+    margin-top: 25px;
+    display: inline-block;
+    background: var(--barca-gold);
+    color: var(--dark);
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .fun-fact:hover {
+    transform: scale(1.05);
+  }
+
+  #factBox {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    min-height: 30px;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="ball">⚽</div>
+    <h1>NINO HUKIĆ</h1>
+    <p class="subtitle">Budući fudbalska zvijezda 🌟</p>
+    <div class="badge">12 godina · OŠ "Meša Selimović"</div>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <div class="icon">🔵🔴</div>
+      <h3>Omiljeni klub</h3>
+      <p>FC Barcelona</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🏀</div>
+      <h3>Omiljeni košarkaš</h3>
+      <p>LaMelo Ball</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎓</div>
+      <h3>Škola</h3>
+      <p>OŠ "Meša Selimović"</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎂</div>
+      <h3>Godine</h3>
+      <p>12 godina</p>
+    </div>
+  </section>
+
+  <section class="goal-section">
+    <h2>Cilj: postati profesionalni fudbaler ⚽🔥</h2>
+    <p>Nino trenira svaki dan, uči od svojih idola i sanja da jednog dana igra na velikim stadionima — baš kao njegova omiljena Barcelona.</p>
+    <div class="fun-fact" onclick="showFact()">Klikni za zanimljivost 👇</div>
+    <div id="factBox"></div>
+  </section>
+
+  <footer>Napravljeno za Ninu Hukića ❤️</footer>
+
+  <script>
+    const facts = [
+      "Barcelona igra na stadionu Camp Nou, jednom od najvećih u Evropi! 🏟️",
+      "LaMelo Ball je igrao za Charlotte Hornets i poznat je po nevjerovatnim asistencijama! 🏀",
+      "Vježbanje driblanja 15 minuta dnevno može značajno poboljšati kontrolu lopte! ⚽",
+      "Najbolji fudbaleri svijeta su počeli trenirati baš u osnovnoj školi, kao Nino! 💪",
+      "LaMelo Ball je osvojio nagradu za Rookie of the Year u NBA ligi! 🏆"
+    ];
+
+    function showFact() {
+      const box = document.getElementById('factBox');
+      const random = facts[Math.floor(Math.random() * facts.length)];
+      box.textContent = random;
+    }
+  </script>
+
+</body>
+</html>
